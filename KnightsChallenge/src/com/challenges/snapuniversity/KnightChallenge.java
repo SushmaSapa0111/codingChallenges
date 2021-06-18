@@ -7,39 +7,40 @@ public class KnightChallenge {
     // {(1,2),(1,-2),(2,1),(2,-1),(-2,1),(-2,-1),(-1,2),(-1,-2)}
     public static void main(String[] args) {
         int[][] board = new int[8][8];
-        List<String> pos = new ArrayList<String>();
-        pos.add("-2,-1");
-        pos.add("-2,1");
-        pos.add("-1,-2");
-        pos.add("-1,2");
-        pos.add("1,-2");
-        pos.add("1,2");
-        pos.add("2,-1");
-        pos.add("2,1");
-        int count=1;
-        for (int i = 0; i < board.length;i++) {
-            for (int j = 0; j < board[i].length;j++) {
-                System.out.println("Stared For ("+i+","+j+") ");
+        List<String> posiKNightMoves = new ArrayList<String>();
+        posiKNightMoves.add("-2,-1");
+        posiKNightMoves.add("-2,1");
+        posiKNightMoves.add("-1,-2");
+        posiKNightMoves.add("-1,2");
+        posiKNightMoves.add("1,-2");
+        posiKNightMoves.add("1,2");
+        posiKNightMoves.add("2,-1");
+        posiKNightMoves.add("2,1");
+        int count = 1;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                System.out.println("Stared For (" + i + "," + j + ") ");
                 count = 1;
                 board = new int[8][8];
                 board[i][j] = count;
-                count = checkMovesRecursively(i,j,pos,count,board);
-                if (count == 64){
-                    System.out.println("Solution for position ("+i+","+j+") ");
+                count = checkMovesRecursively(i, j, posiKNightMoves, count, board);
+                if (count == 64) {
+                    System.out.println("Solution for position (" + i + "," + j + ") ");
                     printBoard(board);
                     System.out.println("completed");
                 } else {
-                    System.out.println("No Solution Found for ("+i+","+j+") ");
+                    System.out.println("No Solution Found for (" + i + "," + j + ") ");
                 }
             }
         }
     }
 
-    private static int checkMovesRecursively(int x, int y, List<String> pos, int count, int[][] board) {
-        if (count == 64){
+    private static int checkMovesRecursively(int x, int y, List<String> pos, int count,
+            int[][] board) {
+        if (count == 64) {
             return count;
         }
-        for (int i = 0; i< pos.size(); i++) {
+        for (int i = 0; i < pos.size(); i++) {
             String[] co = pos.get(i).split(",");
             int newX = x + Integer.parseInt(co[0]);
             int newY = y + Integer.parseInt(co[1]);
@@ -51,7 +52,7 @@ public class KnightChallenge {
             if (count == 64) {
                 return count;
             }
-            if (i == pos.size()-1) {
+            if (i == pos.size() - 1) {
                 count--;
                 board[x][y] = 0;
             }
@@ -60,10 +61,8 @@ public class KnightChallenge {
     }
 
     private static void printBoard(int[][] board) {
-        for (int[] x : board)
-        {
-            for (int y : x)
-            {
+        for (int[] x : board) {
+            for (int y : x) {
                 if (y > 9) {
                     System.out.print(y + " ");
                 } else {

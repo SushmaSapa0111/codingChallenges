@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class for checking latest dependency versions
+ */
 public class MavenDependencyCheck {
     public static void main(String[] args) {
         FileWriter csvWriter = null;

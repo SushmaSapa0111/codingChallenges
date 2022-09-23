@@ -29,7 +29,7 @@ public class KnightChallenge {
                     printBoard(board);
                     System.out.println("completed");
                 } else {
-                    System.out.println("No Solution Found for (" + i + "," + j + ") ");
+                    System.out.println("No Solution Found for (" + i + "," + j + ")    ");
                 }
             }
         }
